@@ -1,51 +1,85 @@
-:root
-     -- texto- {color: beige;
-     -- 
-
+:root {
+    --text-color: #f7f7f7;
+    --card-front-color: #ed143d;
+    --card-back-color: #000000;
 }
 
-
-
-
-
-
-body{
-
-    background: url(¨img/bg-desktop,webp¨);
+body {
+    background: url("img/bg-desktop.webp");
     font-family: Bai Jamjuree;
-    color: white;
 }
 
 #container {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 4rem;
+    gap: 3rem;
 }
 
-.cartao{
+.cartao {
     margin: 1rem 1rem;
-    background-color: rgb(20, 143, 220);
+    background-color: crimson;
     height: 20rem;
     flex-grow: 1;
     flex-basis: calc(33% -6rem);
 }
 
-.cartao__conteudo{
+.cartao__conteudo {
     text-align: center;
     height: 100%;
+    background-color: var(--card-back-color);
+    transform-style: preserve-3d;
+    transition: transform 300ms ease-in-out;
 }
 
 .cartao__conteudo h3 {
-    background-color: snow;
     text-align: left;
     padding: 0.5rem;
     position: absolute;
-    margin: 0.6%;
-    border-radius: 0.7rem;
+    margin: 0.6rem;
+    border-radius: 0.6rem;
     font-size: 1vw;
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    backface-visibility: hidden;
+}
+
+.cartao__conteudo__pergunta p {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.cartao__conteudo__resposta p {
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.cartao:hover .cartao__conteudo {
+    transform: rotateY(180deg);
+}
+
+.cartao__conteudo__pergunta,
+.cartao__conteudo__resposta {
+    backface-visibility: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.cartao__conteudo__resposta {
+    transform: rotateY(180deg);
+}
+
+.cartao__conteudo p {
+    margin-top: 1rem;
+    padding: 2rem;
+    margin-top: 4rem;
 }
 
 footer {
-    background-color: gray;
-    color: black;
+    background-color: black;
+    color: white;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -54,6 +88,6 @@ footer {
 
 footer p {
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.6rem;
     margin-top: 0.5rem;
 }
